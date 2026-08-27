@@ -1,42 +1,23 @@
-import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import Header from "./components/header/header";
-import Footer from "./components/footer/footer";
-
-// Dedicated Pages
-import Home from "./pages/Home";
-import RandomCatPage from "./pages/RandomCatPage";
-import CatGifPage from "./pages/CatGifPage";
-import CatTagsPage from "./pages/CatTagsPage";
-import CatSaysPage from "./pages/CatSaysPage";
-import CatFactsPage from "./pages/CatFactsPage";
-import FavoritesPage from "./pages/FavoritesPage";
-import AboutPage from "./pages/AboutPage";
+import RandomCat from "./components/randomcat/randomcat";
+import RandomCatGIF from "./components/catgif/catgif";
+import CatTags from "./components/cattags/cattags";
+import CatSays from "./components/catsays/catsays";
 
 function App() {
   return (
-    <div className="app-root">
-      {/* Navigation Header */}
+    <div className="app-container">
       <Header />
-
-      {/* Main Routed Page Content */}
-      <main className="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/photos" element={<RandomCatPage />} />
-          <Route path="/gifs" element={<CatGifPage />} />
-          <Route path="/tags" element={<CatTagsPage />} />
-          <Route path="/meme-generator" element={<CatSaysPage />} />
-          <Route path="/facts" element={<CatFactsPage />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          {/* Catch-all redirect to Home */}
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+      <main className="dashboard-container">
+        <h1>Dashboard</h1>
+        <div className="dashboard-grid">
+          <RandomCat />
+          <RandomCatGIF />
+          <CatTags />
+          <CatSays />
+        </div>
       </main>
-
-      {/* Global Aesthetic Footer */}
-      <Footer />
     </div>
   );
 }
